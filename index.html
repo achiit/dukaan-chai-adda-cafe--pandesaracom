@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chai Adda Cafe – Pandesara, Surat</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=DM+Sans:wght@400;500;700&display=swap">
+<style>
+:root{--bg:#fbf3e4;--card:#fffaf0;--ink:#3b2314;--muted:#7a5a44;--accent:#a8662a;--deep:#3b2314;--onDeep:#fbf3e4;--line:#e8d6b8;--wa:#1f8a4c;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#241409;--card:#33200f;--ink:#f6e8d0;--muted:#cfb597;--accent:#e0a063;--deep:#150b04;--onDeep:#f6e8d0;--line:#4a3220;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#241409;--card:#33200f;--ink:#f6e8d0;--muted:#cfb597;--accent:#e0a063;--deep:#150b04;--onDeep:#f6e8d0;--line:#4a3220;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*:before,*:after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 "DM Sans",system-ui,sans-serif;padding-bottom:84px}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.1;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+section{padding:56px 0}
+h2{font-size:clamp(28px,7vw,40px);font-weight:800;margin-bottom:8px}
+.sub{color:var(--muted);margin:0 0 24px;max-width:46ch}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:999px;border:0;font:700 16px "DM Sans",sans-serif;text-decoration:none;cursor:pointer}
+.btn.main{background:var(--accent);color:#fff}
+.btn.ghost{background:transparent;border:2px solid currentColor}
+.btn.wa{background:var(--wa);color:#fff}
+/* hero */
+.hero{background:var(--deep);color:var(--onDeep);padding:36px 0 56px;position:relative;overflow:hidden}
+.nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:36px}
+.logo{font:800 20px Fraunces,serif}
+.nav a.btn{min-height:40px;padding:0 16px;font-size:14px}
+.hero h1{font-size:clamp(44px,13vw,88px);font-weight:800;letter-spacing:-.02em}
+.hero p{font-size:18px;max-width:34ch;opacity:.9;margin:16px 0 28px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.hero .grid{display:grid;gap:24px;align-items:center}
+.cup{width:min(220px,60vw);justify-self:center}
+.steam path{stroke:#fbf3e4;stroke-width:4;fill:none;stroke-linecap:round;opacity:0;animation:rise 3.2s ease-in-out infinite}
+.steam path:nth-child(2){animation-delay:.8s}.steam path:nth-child(3){animation-delay:1.6s}
+@keyframes rise{0%{opacity:0;transform:translateY(10px)}40%{opacity:.7}100%{opacity:0;transform:translateY(-14px)}}
+@media (prefers-reduced-motion:reduce){.steam path{animation:none;opacity:.5}html{scroll-behavior:auto}}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px;font-size:14px}
+.chips span{border:1px solid rgba(251,243,228,.35);border-radius:999px;padding:4px 12px}
+/* offers */
+.offers{display:grid;gap:14px}
+.offer{background:var(--card);border:2px dashed var(--accent);border-radius:20px;padding:20px;display:flex;gap:16px;align-items:center}
+.offer b.big{font:800 34px Fraunces,serif;color:var(--accent);min-width:84px}
+.offer h3{font-size:20px}.offer p{margin:2px 0 0;color:var(--muted);font-size:15px}
+/* menu */
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;margin-bottom:16px}
+.tab{flex:none;min-height:44px;padding:0 18px;border-radius:999px;border:2px solid var(--line);background:var(--card);color:var(--ink);font:700 15px "DM Sans",sans-serif;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--deep);color:var(--onDeep);border-color:var(--deep)}
+.items{list-style:none;margin:0;padding:0;background:var(--card);border-radius:20px;padding:6px 20px}
+.items li{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px dotted var(--line)}
+.items li:last-child{border:0}
+.items b{display:block}.items small{color:var(--muted)}
+.price{font-weight:700;color:var(--accent);white-space:nowrap}
+/* reviews */
+.rev{display:grid;gap:14px;margin-bottom:24px}
+.card{background:var(--card);border-radius:20px;padding:20px;border:1px solid var(--line)}
+.card .stars{color:var(--accent);letter-spacing:2px}
+.card p{margin:6px 0 10px}
+.card small{color:var(--muted)}
+.rform{display:grid;gap:10px}
+/* forms */
+label{font-weight:700;font-size:14px;display:block;margin-bottom:4px}
+input,select,textarea{width:100%;min-height:48px;border-radius:14px;border:2px solid var(--line);background:var(--card);color:var(--ink);font:400 16px "DM Sans",sans-serif;padding:10px 14px}
+textarea{min-height:84px}
+.row{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+.book{background:var(--deep);color:var(--onDeep);border-radius:28px;padding:28px 20px}
+.book .sub{color:var(--onDeep);opacity:.85}
+.book form{display:grid;gap:14px}
+.book input,.book select{background:#fffaf0;color:#3b2314;border-color:transparent}
+/* map */
+.map{display:grid;gap:16px}
+.pin{background:var(--card);border:1px solid var(--line);border-radius:24px;min-height:200px;display:grid;place-items:center;text-align:center;padding:24px;
+background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:36px 36px}
+.pin div{background:var(--card);padding:14px 18px;border-radius:16px}
+.hours{list-style:none;padding:0;margin:0;color:var(--muted)}
+footer{padding:28px 0 12px;text-align:center;color:var(--muted);font-size:14px}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--deep);padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));display:flex;gap:10px}
+.bar .btn{flex:1;min-height:48px}
+@media (min-width:760px){
+.hero .grid{grid-template-columns:1.3fr 1fr}.offers{grid-template-columns:repeat(3,1fr)}.offer{flex-direction:column;align-items:flex-start}
+.rev{grid-template-columns:repeat(3,1fr)}.map{grid-template-columns:1.4fr 1fr}.bar{display:none}body{padding-bottom:0}}
+</style>
+</head>
+<body>
+<header class="hero">
+<div class="wrap">
+<nav class="nav"><span class="logo">Chai Adda ☕</span><a class="btn ghost" href="#book">Book a table</a></nav>
+<div class="grid">
+<div>
+<h1>Chai Adda Cafe</h1>
+<p>Kadak chai, hot snacks and good friends. Your cosy corner in Pandesara.</p>
+<div class="cta"><a class="btn main" href="#menu">See menu</a><a class="btn ghost" href="#book">Book a table</a></div>
+<div class="chips"><span>Open 7 AM – 11 PM</span><span>Pandesara, Surat</span></div>
+</div>
+<svg class="cup" viewBox="0 0 200 200" role="img" aria-label="Steaming cup of chai">
+<g class="steam"><path d="M70 60c-10-12 10-18 0-32"/><path d="M100 60c-10-12 10-18 0-32"/><path d="M130 60c-10-12 10-18 0-32"/></g>
+<path d="M40 80h120v40c0 28-22 50-60 50s-60-22-60-50z" fill="#fbf3e4"/>
+<path d="M60 90h80v26c0 20-16 34-40 34s-40-14-40-34z" fill="#a8662a"/>
+<path d="M160 92c26 0 26 40-4 40" fill="none" stroke="#fbf3e4" stroke-width="10" stroke-linecap="round"/>
+<ellipse cx="100" cy="182" rx="70" ry="8" fill="#fbf3e4" opacity=".25"/>
+</svg>
+</div>
+</div>
+</header>
+
+<section id="offers"><div class="wrap">
+<h2>Today’s offers</h2>
+<p class="sub">Fresh deals every day. Show this page at the counter.</p>
+<div class="offers">
+<div class="offer"><b class="big">₹49</b><div><h3>Chai + Bun Maska</h3><p>The classic pair, till 11 AM.</p></div></div>
+<div class="offer"><b class="big">2 for 1</b><div><h3>Cutting Chai</h3><p>Bring a friend, 4 PM – 6 PM.</p></div></div>
+<div class="offer"><b class="big">10% off</b><div><h3>Group of 4+</h3><p>Book a table and save on the bill.</p></div></div>
+</div>
+</div></section>
+
+<section id="menu" style="background:var(--card)"><div class="wrap">
+<h2>Our menu</h2>
+<p class="sub">Simple, tasty and easy on the pocket.</p>
+<div class="tabs" role="tablist" id="tabs"></div>
+<ul class="items" id="items"></ul>
+</div></section>
+
+<section id="reviews"><div class="wrap">
+<h2>What friends say</h2>
+<p class="sub">Tried us? Tell us how it was.</p>
+<div class="rev" id="rev"></div>
+<div class="card">
+<h3 style="font-size:22px;margin-bottom:12px">Write a review</h3>
+<div class="rform">
+<div><label for="rn">Your name</label><input id="rn" autocomplete="name"></div>
+<div><label for="rs">Rating</label><select id="rs"><option value="5">★★★★★ Loved it</option><option value="4">★★★★ Good</option><option value="3">★★★ Okay</option></select></div>
+<div><label for="rt">Your review</label><textarea id="rt"></textarea></div>
+<button class="btn main" id="rb" type="button">Post review</button>
+<small id="rm" role="status"></small>
+</div>
+</div>
+</div></section>
+
+<section id="book"><div class="wrap">
+<div class="book">
+<h2>Book a table</h2>
+<p class="sub">Fill this in and we’ll open WhatsApp with your request ready to send.</p>
+<form id="bf">
+<div><label for="n">Name</label><input id="n" required autocomplete="name"></div>
+<div class="row"><div><label for="d">Date</label><input id="d" type="date" required></div><div><label for="t">Time</label><input id="t" type="time" required></div></div>
+<div><label for="g">Guests</label><select id="g"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7+</option></select></div>
+<button class="btn wa" type="submit">Send on WhatsApp</button>
+</form>
+</div>
+</div></section>
+
+<section id="visit"><div class="wrap">
+<h2>Find us</h2>
+<p class="sub">Right here in Pandesara, easy to reach and easy to park.</p>
+<div class="map">
+<div class="pin"><div><b>☕ Chai Adda Cafe</b><br>Pandesara, Surat, Gujarat</div></div>
+<div>
+<ul class="hours"><li>Mon – Fri: 7 AM – 11 PM</li><li>Sat – Sun: 7 AM – 12 midnight</li></ul>
+<p style="margin:16px 0"><a class="btn main" id="mapbtn" target="_blank" rel="noopener" href="#">Open in Google Maps</a></p>
+</div>
+</div>
+</div></section>
+
+<footer><div class="wrap">Made with chai and love · Chai Adda Cafe, Pandesara, Surat</div></footer>
+
+<div class="bar">
+<a class="btn wa" id="wa1" target="_blank" rel="noopener" href="#">WhatsApp us</a>
+<a class="btn main" href="#book">Book table</a>
+</div>
+
+<script>
+// Change these two lines to your real details
+var PHONE="919999999999";
+var MAPQ="Chai Adda Cafe Pandesara Surat";
+var MENU={
+"Chai":[["Masala Chai","Ginger, elaichi, full flavour",20],["Cutting Chai","Half glass, full mazaa",15],["Kesar Chai","Saffron and cream",40],["Tulsi Ginger Chai","Soothing and light",25]],
+"Snacks":[["Bun Maska","Soft pav, loads of butter",35],["Vada Pav","Spicy and hot",25],["Cheese Sandwich","Grilled till golden",70],["Samosa (2 pcs)","With green chutney",30]],
+"Cold":[["Cold Coffee","Thick and creamy",80],["Iced Lemon Tea","Cool and zesty",60],["Mango Shake","Seasonal, fresh",90]],
+"Sweet":[["Gulab Jamun (2)","Warm and soft",40],["Brownie","Chocolate, fudgy",70]]};
+var REVS=[["Priya S.",5,"Best masala chai near Pandesara. Staff are so friendly!"],["Rahul M.",5,"Bun maska with chai in the evening is pure happiness."],["Hetal P.",4,"Cosy place for friends. Booked a table on WhatsApp, super easy."]];
+function $(i){return document.getElementById(i)}
+function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+var wa="https://wa.me/"+PHONE;
+$("wa1").href=wa+"?text="+encodeURIComponent("Hi Chai Adda! ");
+$("mapbtn").href="https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(MAPQ);
+// menu
+var cats=Object.keys(MENU);
+function show(c){
+ Array.prototype.forEach.call($("tabs").children,function(b){b.setAttribute("aria-selected",b.textContent===c)});
+ var ul=$("items");ul.textContent="";
+ MENU[c].forEach(function(i){var li=el("li");var d=el("div");d.appendChild(el("b",0,i[0]));d.appendChild(el("small",0,i[1]));li.appendChild(d);li.appendChild(el("span","price","₹"+i[2]));ul.appendChild(li)});
+}
+cats.forEach(function(c){var b=el("button","tab",c);b.type="button";b.setAttribute("role","tab");b.onclick=function(){show(c)};$("tabs").appendChild(b)});
+show(cats[0]);
+// reviews
+function addRev(r,top){
+ var c=el("div","card");c.appendChild(el("div","stars",new Array(r[1]+1).join("★")+new Array(6-r[1]).join("☆")));
+ c.appendChild(el("p",0,"“"+r[2]+"”"));c.appendChild(el("small",0,r[0]));
+ if(top)$("rev").insertBefore(c,$("rev").firstChild);else $("rev").appendChild(c);
+}
+REVS.forEach(function(r){addRev(r)});
+$("rb").onclick=function(){
+ var n=$("rn").value.trim(),t=$("rt").value.trim();
+ if(!n||!t){$("rm").textContent="Please add your name and a few words.";return}
+ addRev([n,+$("rs").value,t],true);$("rn").value="";$("rt").value="";$("rm").textContent="Thank you! Your review is added on this page.";
+};
+// booking
+var today=new Date().toISOString().slice(0,10);$("d").min=today;$("d").value=today;
+$("bf").onsubmit=function(e){
+ e.preventDefault();
+ var m="Hi Chai Adda! I'd like to book a table.\nName: "+$("n").value+"\nDate: "+$("d").value+"\nTime: "+$("t").value+"\nGuests: "+$("g").value;
+ window.open(wa+"?text="+encodeURIComponent(m),"_blank");
+};
+</script>
+</body>
+</html>
